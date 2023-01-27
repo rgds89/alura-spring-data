@@ -1,6 +1,5 @@
 package br.com.alura.springdata.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,13 +11,21 @@ import java.io.Serializable;
 @Table(name = "cargos")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class Cargo  implements Serializable{
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String descricao;
+
+    public Cargo(String descricao){
+        this.descricao = descricao;
+    }
+
+    @Override
+    public String toString() {
+        return "Cargo { id= " + id + ", descricao= " + descricao + "}";
+    }
 }
