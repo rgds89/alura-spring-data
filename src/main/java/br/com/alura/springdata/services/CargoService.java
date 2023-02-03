@@ -62,4 +62,8 @@ public class CargoService {
     private void deletar(Long id){
         cargoRepository.deleteById(id);
     }
+
+    public Cargo obterCargoPeloID(Long id) {
+        return cargoRepository.findById(id).get();
+    }
 }
